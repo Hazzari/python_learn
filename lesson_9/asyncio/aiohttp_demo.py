@@ -5,6 +5,8 @@ from asyncio import FIRST_COMPLETED, CancelledError
 from aiohttp import ClientSession
 from loguru import logger
 
+import utils
+
 
 @dataclass
 class Service:
@@ -28,6 +30,7 @@ async def _fetch(session: ClientSession, url: str) -> dict:
         return result
 
 
+@utils.timing_dec
 async def fetch_ip(service: Service) -> str:
     """Получаем ответ от API """
     async with ClientSession() as session:  # Открываем сессию
