@@ -11,6 +11,8 @@ sqlalchemy = "*"
 redis = "*"
 pymongo = "*"
 loguru = "*"
+coverage = "*"
+aiohttp = "*"
 
 [requires]
 python_version = "3.9"
