@@ -48,17 +48,19 @@ async def main():
     done, pending = await asyncio.wait({*task_list}, return_when=FIRST_COMPLETED, timeout=10)
 
     # Завершаем все оставшиеся задачи
-    for y in pending:
-        y.cancel()
-        try:
-            await asyncio.wait_for(y, timeout=10)
-        except CancelledError:
-            pass
+    for task in pending:
+        logger.debug("Завершаемые задачи {}", task)
+        task.cancel()
+        while task.cancelled:
+            try:
+                logger.info('Задача {} завершена', task.get_name())
+                break
+            except CancelledError:
+                logger.info('Задача не завершена')
 
     # Выводим ответ сервера
-    for x in done:
-        print()
-        logger.info("Твой IP  {}", x.result())
+    for done_task in done:
+        logger.info("Твой IP  {}", done_task.result())
         break
     else:
         logger.warning("Значение не получено")
