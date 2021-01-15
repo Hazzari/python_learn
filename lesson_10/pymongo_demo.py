@@ -1,20 +1,21 @@
 from datetime import datetime
 import pymongo
+from bson import ObjectId
 
 client = pymongo.MongoClient("mongodb://localhost:27017/")
-print(client)
-
-print(client.list_database_names())
+# print(client)
+#
+# print(client.list_database_names())
 
 DB_PROJ = "proj"
 
 db = client[DB_PROJ]
 
-print(db)
-print(db.list_collection_names())
+# print(db)
+# print(db.list_collection_names())
 
-res = db["demo"].insert_one({ "foo": "bar "})
-print(res, res.inserted_id)
+# res = db["demo"].insert_one({"foo": "bar "})
+# print(res, res.inserted_id)
 
 COLLECTION_USERS = "users"
 
@@ -37,22 +38,24 @@ users_collection = db[COLLECTION_USERS]
 admin_user = user_factory("admin", 20)
 admin_user["is_admin"] = True
 
-res = users_collection.insert_one(admin_user)
-print(res, res.inserted_id)
-
+# res = users_collection.insert_one(admin_user)
+# print(res, res.inserted_id)
 
 users = [user_factory("sam", 22), user_factory("john", 24)]
 results = users_collection.insert_many(users)
-print(results, results.inserted_ids)
+# print(results, results.inserted_ids)
 
 user_admin = users_collection.find_one({"username": "admin"})
-print(user_admin, user_admin["_id"], user_admin["username"])
+# print(user_admin, user_admin["_id"], user_admin["username"])
 
 res = db["demo"].insert_one({
-  "user_admin" : user_admin["_id"],
+    "user_admin": user_admin["_id"],
 })
 
 print(res, res.inserted_id)
+
+a = users_collection.find_one({"_id": "60019081f0cc0656357f4390"})
+del a['_id']
 
 
 # queries
