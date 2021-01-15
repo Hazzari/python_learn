@@ -18,7 +18,7 @@ class User(Document):
     registered = BooleanField(default=False)
     date_created = DateTimeField(default=datetime.utcnow)
 
-    def json(self):
+    def json(self) -> str:
         user_dict = {
             'username': self.username,
             'email': self.email,
@@ -61,7 +61,7 @@ def create_user(username: str, email: str, age: int, bio: str = None) -> None:
     return None
 
 
-def find_user(username: str):
+def find_user(username: str) -> str:
     try:
         found_user = User.objects().get(username=username)
     except DoesNotExist:
@@ -76,7 +76,7 @@ def delete_user(user_id: str) -> None:
     return None
 
 
-def create_blog_post(title: str, content: str, author: User):
+def create_blog_post(title: str, content: str, author: User) -> None:
     new_blog_post = BlogPost(
         title=title,
         content=content,
@@ -101,12 +101,12 @@ def new_user() -> None:
                 break
 
 
-new_user()
-
+# new_user()
 user = find_user('John')
-try:
-    print(user.id)
-except AttributeError:
-    print(user)
-
-# delete_user(user.id)
+print(type(user))
+# try:
+#     print(user.id)
+# except AttributeError:
+#     print(user)
+#
+# # delete_user(user.id)
