@@ -603,3 +603,5 @@ fabric.properties
 
 /lesson_10/base_data/dump.rdb
 /lesson_10/docker/db-data/
+/db-data/*
+/db-data
