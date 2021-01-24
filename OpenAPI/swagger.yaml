@@ -1,0 +1,110 @@
+openapi: '3.0.0'
+info:
+    title: Shoping API
+    version: '1.0'
+paths:
+    /products:
+        description: The product catalog
+        # Запрос GET
+        get:
+            summary: Search for products
+            description: |
+            Поиск товаров в каталоге с помощью
+            бесплатного параметра запроса
+            # Ответ
+            responses:
+                '200':
+                    description: |
+                    Товары, соответствующие free query
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                description: Array of products
+                                items:
+                                    type: object
+                                    description: A product
+                                required:
+                                    - reference
+                                    - name
+                                    - price
+                                    - supplier
+                                properties:
+                                    reference:
+                                        description: Unique ID identifying a product
+                                        type: string
+                                    name:
+                                        type: string
+                                    price:
+                                        description: Price in USD
+                                        type: number
+                                    description:
+                                        type: string
+                                    supplier:
+                                        type: object
+                                        description: Product's supplier
+                                        required:
+                                            - reference
+                                            - name
+                                        properties:
+                                            reference:
+                                                type: string
+                                            name:
+                                                type: string
+
+
+            # Параметры
+            parameters:
+                -   name: free-query
+                    description: |
+                        A product's name, reference, or partial descriprion
+                    in: query
+                    required: false
+                    schema:
+                        type: object
+                        # список ОБЯЗАТЕЛЬНЫХ свойств
+                        required:
+                            - reference
+                            - name
+                            - price
+                        # Список свойств с описанием типов
+                        properties:
+                            reference:
+                                type: string
+                                description: Уникальный идентификатор продукта
+                                example: ISBN-983122328102
+                            name:
+                                type: string
+                                example: Дизайн веб-API
+                            price:
+                                type: number
+                                example: 44.99
+                            description:
+                                type: string
+                                example: Книга о дизайне API
+                            supplier:
+                                type: object
+                                description: Поставщик продукции
+                                required:
+                                    - reference
+                                    - name
+                                properties:
+                                    reference:
+                                        type: string
+                                        description: Уникальный идентификатор поставщика
+                                        example: KAJDYC
+                                    name:
+                                        type: string
+                                        example: Manning Publication
+
+
+
+        post:
+            summary: Add product
+            description: |
+                Add product (described in product info
+                parameter) to catalog
+            responses:
+                200:
+                    description: |
+                        Product added to catalog

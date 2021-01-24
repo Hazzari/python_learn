@@ -606,3 +606,6 @@ fabric.properties
 /db-data/*
 
 /lesson_14/.bot.env
+.DS_Store
+
+gen/
