@@ -1,0 +1,9 @@
+1 with open('somefile.txt') as f:
+2 with open('somefile.txt') as f:
+3 with open('somefile.txt') as f:
+4 with open('somefile.txt') as f:
+5 with open('somefile.txt') as f:
+6 with open('somefile.txt') as f:
+7 with open('somefile.txt') as f:
+8 with open('somefile.txt') as f:
+9 with open('somefile.txt') as f:
