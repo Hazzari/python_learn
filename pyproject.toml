@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "lesson_py"
+version = "0.1.0"
+description = ""
+authors = ["Hazzari <Dev.aleksan@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+flask = "*"
+sqlalchemy = "*"
+python-dotenv = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.2"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
