@@ -1,35 +1,36 @@
-from flask import Flask, escape, request
+from flask import Flask, request
+
+from views import product_app
 
 app = Flask(__name__)
+app.register_blueprint(product_app, url_prefix="/products")
 
 
-@app.route('/', methods=["POST", "GET"])
+@app.route("/", methods=["GET", "POST"])
 def index():
-    met = request.method
-
-    if request.method == 'POST':
-        return f'<h1>Hello {request.form.get("name", "WORLD")} </h1>'
-
-    return f'<h1>Hello all</h1>'
+    if request.method == "POST":
+        return f"<h1>Hello {request.form.get('name', 'World')}!</h1>"
+    return "<h1>Hello world!</h1>"
 
 
-# Можно обрабатывать функцию без декоратора route
+# app.add_url_rule("/", "index", index)
 # app.add_url_rule("/", view_func=index)
 
-
-@app.route('/hello/')
-@app.route('/hello/<string:name>/')
+@app.route("/hello/")
+@app.route("/hello/<string:name>/")
 def hello(name=None):
     if name is None:
-        name = 'WORLD'
-    return f'<h1>Hello {name}</h1>'
+        name = "World"
+    return f"<h1>Hello {name}!</h1>"
 
 
-@app.route('/post/<int:post_id>')
-def show_post_int(post_id):
-    return f'Post id = {post_id}{vars()}'
+# @app.route('/post/<string:post_id>/')
+# def alternative_show_post(post_id):
+#     post_id > 0
+#     return 'Post (str) %r' % post_id
 
 
-@app.route('/post/<post_id>')
-def str_show_post(post_id):
-    return f'Post id = {post_id}'
+@app.route('/post/<int:post_id>/')
+def show_post(post_id):
+    # show the post with the given id, the id is an integer
+    return 'Post int %d' % post_id
