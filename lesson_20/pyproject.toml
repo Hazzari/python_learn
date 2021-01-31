@@ -5,8 +5,10 @@ description = ""
 authors = ["Suren Khorenyan <surenkhorenyan@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
-flask = "^1.1.2"
+python = "^3.9"
+flask = "*"
+python-dotenv = "*"
+Flask-SQLAlchemy = "^2.4.4"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
