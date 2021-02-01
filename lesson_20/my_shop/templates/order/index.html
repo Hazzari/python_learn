@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title -%}
+    Order
+{%- endblock %}
+
+{% block body %}
+    <h1>Order list</h1>
+
+
+    <div class="alert alert-info" role="alert">
+        Sale only today!
+    </div>
+
+
+
+
+    <form>
+        {% for x in list_gel %}
+
+            <div class="form-row">
+                <div class="col-4 border text-left">
+                    <label for="count_gel wwwqqq" id="wwwqqq">{{ x }}</label>
+                </div>
+                <div class="col-2 border-left">
+                    <input type="text" class="form-control" id="count_gel" placeholder="Количество">
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="p-2">
+            <button type="submit" id="add_order" class="form-row btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+
+{% endblock %}
+
+{% block after_body %}
+
+
+    <script>
+
+        $(function () {
+            const name = $('#wwwqqq')
+            console.log(name.text())
+
+            $('#add_order').click(function () {
+                $.ajax({
+                    method: 'POST',
+                    success: function (res) {
+                        console.log(res)
+                        console.log(res.data)
+                    },
+                    error: function (err) {
+                        console.error(err)
+                    },
+
+                })
+            })
+        });
+    </script>
+
+{% endblock %}
+
