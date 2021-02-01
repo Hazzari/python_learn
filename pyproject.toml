@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "lesson_py"
 version = "0.1.0"
-description = ""
+description = "Learning project"
 authors = ["Hazzari <Dev.aleksan@gmail.com>"]
 
 [tool.poetry.dependencies]
