@@ -8,9 +8,7 @@ import config
 
 from views import product_app
 
-
 app = Flask(__name__)
-print(app)
 app.register_blueprint(product_app, url_prefix="/products")
 app.config.update(
     SQLALCHEMY_DATABASE_URI=config.SQLALCHEMY_DATABASE_URI,
