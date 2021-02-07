@@ -49,9 +49,11 @@ class Command(BaseCommand):
         print(animal.id)
 
         # 3. Выборка нескольких объектов (фильтрация)
-        animals = Animal.objects.filter(name='Борис')
+        # animals = Animal.objects.filter(name='Борис')
+        animals = Animal.objects.filter(foods__in=[ham, honey])
         # Вернется QuerySet - несколько найденных объектов
         for animal in animals:
+            print('food')
             print(animal.name)
 
         print('done')

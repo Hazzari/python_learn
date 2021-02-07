@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Family(models.Model):
-    # Семейство - медведь
+    # Семейсвто - медведь
     name = models.CharField(max_length=64, unique=True)
 
     # Основные типы полей
