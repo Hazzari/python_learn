@@ -1,19 +1,19 @@
 [tool.poetry]
-name = "lesson_21"
+name = "my-shop"
 version = "0.1.0"
 description = ""
-authors = ["Aleksan <Dev.aleksan@gmail.com>"]
+authors = ["Suren Khorenyan <surenkhorenyan@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9.1"
-SQLAlchemy = "^1.3.23"
-Flask = "^1.1.2"
-Flask-Migrate = "^2.6.0"
-Flask-SQLAlchemy = "^2.4.4"
+flask = "^1.1.2"
+flask-sqlalchemy = "^2.4.4"
+Flask-Migrate = "^2.5.3"
 psycopg2 = "^2.8.6"
 
-[tool.poetry.dev-dependencies]set FLASK_APP=
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
