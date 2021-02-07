@@ -5,13 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Зоопарк</h1>
+<h1>Зоопарк</h1>
 
-    <ul>
-        {% for animal in animals %}
-            <li>{{animal.name}} ({{animal.kind}} {{animal.kind.family}})</li>
-        {% endfor %}
-    </ul>
+<ul>
+    {% for animal in animals %}
+        <li>{{ animal.name }} ({{ animal.kind }} {{ animal.kind.family }})</li>
+    {% endfor %}
+</ul>
 
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Сохранить</button>
+</form>
 </body>
 </html>
