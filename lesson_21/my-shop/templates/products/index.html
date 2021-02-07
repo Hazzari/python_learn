@@ -12,16 +12,21 @@
   <div class="row">
     <div class="col col-12 col-md-8 col-lg-6 col-xl-4">
       <ul class="list-group">
-        {% for product_id in products %}
+        {% for product in products %}
           <li class="list-group-item product-item">
-            <a class="my-2" href="{{ url_for('product_app.product_detail', product_id=product_id) }}">
-              {{ products[product_id] }}
+            <a class="my-2" href="{{ url_for('product_app.product_detail', product_id=product.id) }}">
+              {{ product.name -}}
             </a>
+            {% if product.is_new %}
+              <span class="badge badge-secondary">New</span>
+            {% endif %}
           </li>
         {% endfor %}
       </ul>
     </div>
   </div>
+  <br>
+  <small>Alex 2021</small>
 {% endblock %}
 
 {% block after_body %}
