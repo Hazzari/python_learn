@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="{{ url_for('static', path='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap.css') }}">
+
+    <title>
+        {% block title %}
+        OVERRIDE ME
+        {% endblock %}
+    </title>
+</head>
+
+
+<body>
+<div id="content" class="container">
+    <div class="body" id="body__text">
+        {% block content %}
+        OVERRIDE ME
+        {% endblock %}
+    </div>
+
+    <div id="footer" id="footer__text">
+        {% block footer %}
+        &copy; Copyright 2020 by <a href="http://p-alex.ru/">Hazzari</a>.
+        {% endblock %}
+
+
+    </div>
+
+</div>
+
+
+<script src="{{ url_for('static', path='js/bootstrap.bundle.js') }}"></script>
+
+</body>
+</html>

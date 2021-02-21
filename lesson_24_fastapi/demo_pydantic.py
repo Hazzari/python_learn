@@ -1,7 +1,7 @@
 from datetime import datetime
+from pydantic import BaseModel, Field
 from typing import Optional
 from uuid import uuid4
-from pydantic import BaseModel, Field
 
 
 def create_user(username: Optional[str] = None):

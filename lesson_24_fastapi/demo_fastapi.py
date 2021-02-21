@@ -1,6 +1,5 @@
-from typing import Optional, Dict
-
 from fastapi import FastAPI, exceptions, Query, Header, Depends
+from typing import Optional, Dict
 
 from demo_pydantic import User, UserBase, UserOut
 
