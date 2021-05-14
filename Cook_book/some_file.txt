@@ -1,9 +1,20 @@
-1 with open('somefile.txt') as f:
-2 with open('somefile.txt') as f:
-3 with open('somefile.txt') as f:
-4 with open('somefile.txt') as f:
-5 with open('somefile.txt') as f:
-6 with open('somefile.txt') as f:
-7 with open('somefile.txt') as f:
-8 with open('somefile.txt') as f:
-9 with open('somefile.txt') as f:
+1 Extensible base user model
+2 Extensible base user model
+3 xtensible base user model
+4 Extensible base user model
+Extensible base user model
+Extensible base user model
+Ready-to-use register, login, reset password and verify e-mail routes
+Ready-to-use OAuth2 flow
+Dependency callables to inject current user in route
+Customizable database backend
+
+SQLAlchemy async backend included thanks to encode/databases
+MongoDB async backend included thanks to mongodb/motor
+Tortoise ORM backend included
+ormar backend included
+Multiple customizable authentication backends
+
+JWT authentication backend included
+Cookie authentication backend included
+Full OpenAPI schema support, even with several authentication backends
